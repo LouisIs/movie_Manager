@@ -1,0 +1,23 @@
+﻿@model Rabaswende002.Models.Customer
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<ul>
+    @if (Model.Birthdate.HasValue)
+    {
+        <li> Date of birth: @Model.Birthdate.Value.ToShortDateString()</li>
+    }
+    else
+    {
+        <li>No record of @Model.Name 's Birthdate</li>
+    }
+
+
+
+    <li>Membership Type:  @Model.MembershipType.Name</li>
+</ul>
+
+

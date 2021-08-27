@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Rabaswende002.Models.Movie>
+@{
+    ViewBag.Title = "List Of Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>list of Movies</h2>
+
+<button onclick="window.location.href='/Movie/New'" class="btn btn-primary">New Movie</button>
+<br />
+<br />
+
+
+    <table id="movies" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movies</th>
+                <th>Genres</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            
+
+        </tbody>
+    </table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+        var table =  $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movie/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, GetMovie) {
+                            return "<a href= '/movie/details/" + GetMovie.id + "'>" + GetMovie.name + "</a>";
+                        }
+                       
+                    },
+                    {
+                        data: "genre.name"
+                    },
+                   
+
+                ]
+            })
+        })
+    </script>
+
+}
+

@@ -1,0 +1,46 @@
+﻿@model Rabaswende002.Models.Movie
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+<ul>
+    @if (Model.ReleaseDate.ToString() != "")
+    {
+        <li>@Model.ReleaseDate.ToShortDateString()</li>
+    }
+    else
+    {
+        <li>No recorde about @Model.Name added date</li>
+    }
+
+    @if (Model.AddedDate.ToString() != "")
+    {
+        <li>@Model.AddedDate.ToShortDateString()</li>
+    }
+    else
+    {
+        <li>No recorde about @Model.Name added date</li>
+    }
+
+    @if (Model.InStock != 0)
+    {
+        <li>@Model.InStock.ToString()</li>
+    }
+    else
+    {
+        <li>No recorde about @Model.Name added date</li>
+    }
+
+    @if (Model.Genre.ToString() != "")
+    {
+        <li>@Model.Genre</li>
+    }
+    else
+    {
+        <li>No recorde about @Model.Name added date</li>
+    }
+
+</ul>
+

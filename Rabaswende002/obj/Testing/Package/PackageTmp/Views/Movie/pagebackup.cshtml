@@ -1,0 +1,42 @@
+﻿ @model IEnumerable<Rabaswende002.Models.Movie>
+@{
+    ViewBag.Title = "List Of Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>list of Movies</h2>
+
+<button onclick="window.location.href='/Movie/New'" class="btn btn-primary">New Movie</button>
+<br />
+<br />
+
+@if (!Model.Any())
+{
+    <h4>There is no Movie curently</h4>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movies</th>
+                <th>Genres</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Movie in Model)
+            {
+
+                <tr>
+                    <td>@Html.ActionLink(Movie.Name, "Edit", "Movie", new { id = Movie.Id }, null)</td>
+
+                    <td>@Movie.Genre.Name</td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
+
